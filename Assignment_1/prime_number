@@ -1,0 +1,87 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+/*
+write a function which will print prime number
+
+prime numner till 100
+
+num
+20
+
+n%runner == 20
+
+
+   
+   
+   36
+  X*Y = 36
+  
+  20
+  
+*/
+bool is_prime(int num) {
+    if(num <= 1) {
+        return false;
+    }
+    
+    for(int i=2; i<=sqrt(num); i++) {
+        if(num%i==0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void print_prime_numbers(int num, vector<int>& res) {
+    
+    for(int i=1; i<=num; i++) {
+        if(is_prime(i)) {
+            res.push_back(i);
+        }
+    }
+}
+int main()
+{
+    cout<<"\n";
+    
+    vector<int> res_0;
+    print_prime_numbers(0, res_0);
+    assert(res_0.size()==0);
+    
+    vector<int> res_1;
+    print_prime_numbers(1, res_1);
+    assert(res_1.size()==0);
+    
+    //negative number
+    vector<int> res_nagative;
+    print_prime_numbers(-50, res_nagative);
+    assert(res_1.size()==0);
+    
+    //negative number
+    vector<int> res_2;
+    print_prime_numbers(2, res_2);
+    assert(res_2.size()==1);
+    
+    vector<int> prime_number_upto_20 { 2, 3, 5, 7, 11, 13, 17, 19};
+    vector<int> res_20;
+    print_prime_numbers(20, res_20);
+    
+    assert(prime_number_upto_20.size()==res_20.size());
+    for(int i=0; i<prime_number_upto_20.size(); i++) {
+        assert(prime_number_upto_20[i] == res_20[i]);
+    }
+    
+    
+    return 0;
+}
